@@ -136,50 +136,18 @@ function renderButtons(){
 
 //Challenge 2 - Render only the items selected in the ingredients board based on the state
 function renderIngredientsBoard(){
-  let patty1 = document.getElementById("patty1");
-  if (state.Patty) {
-    patty1.style.display= "block";
-  } 
-  else {
-    patty1.style.display = "none";
-}
-
-
-  let tomato1 = document.getElementById("tomato1");
-  if (state.Tomatoes) {
-    tomato1.style.display= "block";
-  } 
-  else {
-    tomato1.style.display = "none";
-}
-
-  let cheese1 = document.getElementById("cheese1");
-  if (state.Cheese) {
-    cheese1.style.display= "block";
-  } 
-  else {
-    cheese1.style.display = "none";
-}
-
-
-
-  let onion1 = document.getElementById("onion1");
-  if (state.Onions) {
-    onion1.style.display= "block";
-  } 
-  else {
-    onion1.style.display = "none";
-}
-
-
-
-  let lettuce1 = document.getElementById("lettuce1");
-  if (state.Lettuce) {
-    lettuce1.style.display= "block";
-  } 
-  else {
-    lettuce1.style.display = "none";
-}
+  let ing = document.querySelectorAll(".items")
+  
+  for (elem of ing){
+    // console.log(state[elem.textContent]);
+    if (state[elem.textContent]){
+      elem.style.display = "block";
+    }else{
+      elem.style.display = "none"
+    }
+    
+  }
+  
 }
 
 //Judgement 1
@@ -206,3 +174,4 @@ function renderPrice(){
   document.querySelector(".price-details").innerHTML= "INR"+" "+price;
   
 }
+
